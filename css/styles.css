@@ -129,7 +129,12 @@ button {
 .hero {
     background-color: #2e2f42;
     padding: 188px 0;
-
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7)), url("../images/hero-image.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .page-title {
@@ -191,6 +196,16 @@ button {
     overflow: hidden;
 }
 
+.benefits-box {
+    border: 1px solid #8e8f99;
+        border-radius: 4px;
+        background-color: #f4f4fd;
+        min-width: 264px;
+        min-height: 112px;
+        padding: 24px 100px;
+        margin-bottom: 8px;
+}
+
 .benefits-title {
     font-weight: 700;
     font-size: 36px;
@@ -200,6 +215,7 @@ button {
     text-transform: capitalize;
     color: #2e2f42;
 }
+
 
 .benefits-subtitle {
     font-size: 20px;
@@ -216,6 +232,7 @@ button {
     display: flex;
     gap: 24px;
 }
+ 
 
 .benefits-text {
    font-size: 16px;
@@ -226,7 +243,6 @@ button {
 .benefits-list-content {
     width: calc((100% - 3*24px)/4)
 }
-
 
 /* TEAM */
 
@@ -261,6 +277,26 @@ button {
     background-color: #ffffff;
 }
 
+.socialmediaia {
+    display: flex;
+       
+}
+
+.list-socialmedia {
+    display: flex;
+    gap: 24px;
+}
+
+.socialmedia-content {
+   min-width: 40px;
+   min-height: 40px; 
+   fill: #f4f4fd;
+    border-radius: 50%;
+    background-color: #4d5ae5;
+    padding-top: 11px;
+
+}
+
 .team-subtitle {
     font-size: 20px;
     letter-spacing: 0.02em;
@@ -276,10 +312,11 @@ button {
     line-height: 1.5;
     letter-spacing: 0.02em;
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .team-information {
-    padding: 32px 0;
+    padding: 32px 16px;
 }
 
 /* PORTFOLIO */
@@ -333,11 +370,12 @@ button {
 }
 /* FOOTER */
 
+
+
 .page-footer {
     background-color: #2e2f42;
-    padding: 100px 0;
+    padding: 100px 0;   
 }
-
 .page-footer-text {
     max-width: 264px;
     color: #f4f4fd;
@@ -362,3 +400,16 @@ button {
     color: #f4f4fd;
 }
 
+.socialmedia-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+}
+
+.footer-socialmedia-list {
+    display: flex;
+    gap: 16px;
+  
+}
