@@ -40,6 +40,7 @@ button {
 /* HEADER */
 .page-header {
     border-bottom: 1px solid #e7e9fc;
+    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
     
 }
 
@@ -76,11 +77,21 @@ button {
     gap: 40px;
 }
 
-.page-header-item {
-   
+.page-header-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #404bbf;
+    opacity: 0;
 }
 
+
 .page-header-link {
+    position: relative;
     padding: 24px 0;
     display: block;
     font-weight: 500;
@@ -88,15 +99,19 @@ button {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #2e2f42;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.page-header-link:hover {
-    color: #404bbf;
+.page-header-link:hover::after,
+.page-header-link:focus::after,
+.page-header-link.current::after {
+    opacity: 1;
 }
 
-.page-header-link:focus {
+.page-header-link:hover,
+.page-header-link:focus,
+.page-header-link.current {
     color: #404bbf;
-    text-decoration: underline;
 }
 
 .contacts {
@@ -104,12 +119,14 @@ button {
     }
 
 .page-contacts-link {
+    display: block;
     padding: 24px 0;
     color: #434455;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     font-weight: 400;
+    
 }
 
 .page-contact-list {
@@ -129,7 +146,7 @@ button {
 .hero {
     background-color: #2e2f42;
     padding: 188px 0;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7)), url("../images/hero-image.jpg");
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url("../images/hero-image.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -198,12 +215,12 @@ button {
 
 .benefits-box {
     border: 1px solid #8e8f99;
-        border-radius: 4px;
-        background-color: #f4f4fd;
-        min-width: 264px;
-        min-height: 112px;
-        padding: 24px 100px;
-        margin-bottom: 8px;
+    border-radius: 4px;
+    background-color: #f4f4fd;
+    min-width: 264px;
+    min-height: 112px;
+    padding: 24px 100px;
+    margin-bottom: 8px;
 }
 
 .benefits-title {
@@ -252,10 +269,6 @@ button {
     text-align: center;
 }
 
-.team-container {
-
-}
-
 .team-title {
     font-weight: 700;
     font-size: 36px;
@@ -275,6 +288,7 @@ button {
     width: calc((100% - 3*24px)/4);
     border-radius: 0 0 4px 4px;
     background-color: #ffffff;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .socialmediaia {
@@ -288,12 +302,18 @@ button {
 }
 
 .socialmedia-content {
-   min-width: 40px;
-   min-height: 40px; 
-   fill: #f4f4fd;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #4d5ae5;
-    padding-top: 11px;
+    padding: 11px;
+    fill: #f4f4fd;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+.socialmedia-content:hover,
+.socialmedia-content:focus {
+    background-color: #404bbf;
 
 }
 
@@ -339,10 +359,48 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 48px 24px;
+    position: relative;
+    overflow: hidden;
 }
 
 .portfolio-list-content {
     width: calc((100% - 48px)/3);
+
+}
+
+.thumb {
+    position: relative;
+    width: 360px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #4d5ae5;
+transform: translateY(100%);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);;
+
+}
+
+.portfolio-list-content:hover .overlay {
+transform: translatey(0);
+}
+
+.overlay p {
+    color: #f4f4f4;
+    padding-top: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+
 }
 
 .portfolio-subtitle {
@@ -374,8 +432,14 @@ button {
 
 .page-footer {
     background-color: #2e2f42;
-    padding: 100px 0;   
+    padding: 100px 0;
+ 
 }
+
+.page-footer-container {
+display: flex;
+}
+
 .page-footer-text {
     max-width: 264px;
     color: #f4f4fd;
@@ -394,11 +458,13 @@ button {
     color: #4d5ae5;
     display: inline-block;
     margin-bottom: 16px;
+    margin-right: 269px;
 }
 
 .page-footer-accent {
     color: #f4f4fd;
 }
+
 
 .socialmedia-text {
     font-weight: 500;
@@ -406,10 +472,20 @@ button {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #ffffff;
+    margin-bottom: 16px;
 }
-
+   
 .footer-socialmedia-list {
     display: flex;
     gap: 16px;
   
 }
+.social-media .socialmedia-content {
+padding: 8px;
+transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-media .socialmedia-content:hover,
+ .social-media .socialmedia-content:hover {
+  background-color: #32d0aa; 
+} 
