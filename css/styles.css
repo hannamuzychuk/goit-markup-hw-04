@@ -326,15 +326,15 @@ button {
     fill: #f4f4fd;
 }
 
-.team-information .link:hover {
+.icon-link:hover {
     background-color: #404bbf;
 }
 
-.team-information .link:focus {
+.icon-link:focus {
     background-color: #404bbf;
 }
 
-.team-information .link:active {
+.icon-link:active {
     background-color: #404bbf;
 }
 
@@ -505,15 +505,15 @@ button {
     gap: 16px;
   
 } 
-.social-media .link:hover {
+.link-icon:hover {
     background-color: #31d0aa;
 }
 
-.social-media .link:focus {
+.link-icon:focus {
     background-color: #31d0aa;
 }
 
-.social-media .link:active {
+.link-icon:active {
     background-color: #31d0aa;
 }
 
